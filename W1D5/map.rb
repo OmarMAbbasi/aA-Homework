@@ -6,10 +6,11 @@ class Map
     end
 
     def set(key, value)
-        if has_key?(key)
+        debugger
+        if has_key?(@map, key) && !@map.empty?
             puts  "hi"
         end
-        puts "yo"
+        @map << [key,value]
         
     end
     
@@ -25,9 +26,9 @@ class Map
 
     end
 
-    def has_key?(key)
-        debugger
-        @map.each{|hash| true if hash[0] == key }
+    def has_key?(to_check, key)
+        #debugger
+        to_check.each{|h| return true if h[0] == key }
         false
     end
     
@@ -35,4 +36,5 @@ class Map
 end
 
 test_map = Map.new
+test_map.set(1,2)
 test_map.set(1,2)
