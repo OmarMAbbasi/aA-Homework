@@ -8,10 +8,10 @@ class Map
     def set(key, value)
         debugger
         if has_key?(@map, key) && !@map.empty?
-            puts  "hi"
+            @map[@map.index([key,value])] = Array.new([key,value])
+        else
+            @map << [key,value]
         end
-        @map << [key,value]
-        
     end
     
     def get(key)
@@ -37,4 +37,6 @@ end
 
 test_map = Map.new
 test_map.set(1,2)
-test_map.set(1,2)
+test_map.set(1,3)
+
+p test_map
