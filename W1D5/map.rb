@@ -1,6 +1,6 @@
 class Map
     def initialize
-        @map = Hash.new{|h,k| h[k]}        
+        @map = []        
     end
 
     def set(key, value)
