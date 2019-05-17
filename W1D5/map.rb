@@ -6,9 +6,8 @@ class Map
     end
 
     def set(key, value)
-        debugger
-        if has_key?(@map, key) && !@map.empty?
-            @map[@map.index([key,value])] = Array.new([key,value])
+        if !@map.empty? && idx = has_key?(@map, key)
+            @map[idx] = Array.new([key,value])
         else
             @map << [key,value]
         end
@@ -27,9 +26,8 @@ class Map
     end
 
     def has_key?(to_check, key)
-        #debugger
-        to_check.each{|h| return true if h[0] == key }
-        false
+        to_check.each.with_index{|h, idx| return idx if h[0] == key } #return index of key/value pair if key exists, else return false
+        return 
     end
     
 
@@ -37,6 +35,8 @@ end
 
 test_map = Map.new
 test_map.set(1,2)
+p test_map
 test_map.set(1,3)
-
+p test_map
+test_map.set(2,4)
 p test_map
