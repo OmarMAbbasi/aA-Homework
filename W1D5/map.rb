@@ -4,6 +4,7 @@ class Map
     end
 
     def set(key, value)
+        
     end
     
     def get(key)
@@ -16,6 +17,10 @@ class Map
     
     def show
 
+    end
+
+    def has_key?(key)
+        @map.each{|hash| true if hash[0] == key }
     end
     
 
